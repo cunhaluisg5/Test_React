@@ -10,12 +10,13 @@ function Login() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const login = () =>{
-        api.post("/user/authenticate", {
+    const login = async () =>{
+        await api.post("/user/authenticate", {
             cpf,
             password
-        }).then((user) => {
-            localStorage.setItem("user", JSON.stringify(user.data));
+        }).then((object) => {
+            const {user} = object.data;
+            localStorage.setItem("user", JSON.stringify(user));
             navigate("/home");
         }).catch((error) => {
             toast.error("Login Incorreto!");
