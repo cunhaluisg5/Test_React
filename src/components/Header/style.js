@@ -20,5 +20,24 @@ export const Items = styled.div`
         color: #ffffff; 
         text-shadow: #000000 0.1em 0.1em 0.2em;
         font-weight: bold;
+    };
+
+    button{
+        font-size: 18px;
+        text-decoration: none;
+        font-family: sans-serif;
+        padding: 10px;
+        color: #ffffff; 
+        background-color: transparent;
+        text-shadow: #000000 0.1em 0.1em 0.2em;
+        font-weight: bold;
+        cursor: pointer;
+        border: none;
+    };
+
+    button, a{
+        &:hover {
+            color: #fff000;
+        }
     }
 `;

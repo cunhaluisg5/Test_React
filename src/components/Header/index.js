@@ -1,10 +1,18 @@
 import React from "react";
+import {useNavigate} from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import {Container, Items} from "./style";
 
 const Header = () => {
     const user = JSON.parse(localStorage.getItem("user"));
+    const navigate = useNavigate();
+
+    const logout = () => {
+        localStorage.removeItem("user");
+        navigate("/");
+    }
+
     return (
         <Container>
             {user.type === 'S' &&
@@ -15,7 +23,7 @@ const Header = () => {
                     <Link to="/home">Responder Questionário</Link>
                     <Link to="/home">Questionários Respondidos</Link>
                     <Link to="/home">Sobre</Link>
-                    <Link to="/home">Sair</Link>
+                    <button onClick={logout}>Sair</button>
                 </Items>
             }
             {user.type === 'P' &&
@@ -26,7 +34,7 @@ const Header = () => {
                     <Link to="/home">Consultar Desempenho</Link>
                     <Link to="/home">Gerar Relatório</Link>                    
                     <Link to="/home">Sobre</Link>
-                    <Link to="/home">Sair</Link>
+                    <button onClick={logout}>Sair</button>
                 </Items>
             }
         </Container>

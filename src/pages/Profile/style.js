@@ -16,6 +16,7 @@ export const Body = styled.div`
     margin-top: 10px;
     background-color: #FFF0F5;
     border-top: 2px solid palevioletred;
+    box-shadow: 0px 0px 10px 0px #000000;
 `;
 
 export const Card = styled.div`
@@ -28,6 +29,7 @@ export const Card = styled.div`
     padding: 10px;
     background-color: #8B0000;
     border: 2px solid #000000;
+    box-shadow: 5px 5px 0px 0px #000000;
 
     span{
         font-size: 20px;
