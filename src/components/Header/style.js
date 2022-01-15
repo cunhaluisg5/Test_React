@@ -17,7 +17,8 @@ export const Items = styled.div`
         text-decoration: none;
         font-family: sans-serif;
         padding: 10px;
-        color: #ffffff;
+        color: #ffffff; 
+        text-shadow: #000000 0.1em 0.1em 0.2em;
         font-weight: bold;
     }
 `;

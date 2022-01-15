@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 
 import {Container, Items} from "./style";
 
-const Header = (user) => {
-    const { type } = user.user;
+const Header = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
     return (
         <Container>
-            {type === 'S' &&
+            {user.type === 'S' &&
                 <Items>
-                    <Link to="/home">Perfil</Link>
+                    <Link to="/home">Início</Link>
+                    <Link to="/profile">Perfil</Link>
                     <Link to="/home">Consultar Disciplinas</Link>
                     <Link to="/home">Responder Questionário</Link>
                     <Link to="/home">Questionários Respondidos</Link>
@@ -17,9 +18,10 @@ const Header = (user) => {
                     <Link to="/home">Sair</Link>
                 </Items>
             }
-            {type === 'P' &&
+            {user.type === 'P' &&
                 <Items>
-                    <Link to="/home">Perfil</Link>
+                    <Link to="/home">Início</Link>
+                    <Link to="/profile">Perfil</Link>
                     <Link to="/home">Consultar Disciplinas</Link>
                     <Link to="/home">Consultar Desempenho</Link>
                     <Link to="/home">Gerar Relatório</Link>                    
