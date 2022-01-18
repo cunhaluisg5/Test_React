@@ -19,7 +19,7 @@ const Header = () => {
                 <Items>
                     <Link to="/home">Início</Link>
                     <Link to="/profile">Perfil</Link>
-                    <Link to="/home">Consultar Disciplinas</Link>
+                    <Link to="/disciplines">Consultar Disciplinas</Link>
                     <Link to="/home">Responder Questionário</Link>
                     <Link to="/home">Questionários Respondidos</Link>
                     <Link to="/home">Sobre</Link>
@@ -30,7 +30,7 @@ const Header = () => {
                 <Items>
                     <Link to="/home">Início</Link>
                     <Link to="/profile">Perfil</Link>
-                    <Link to="/home">Consultar Disciplinas</Link>
+                    <Link to="/disciplines">Consultar Disciplinas</Link>
                     <Link to="/home">Consultar Desempenho</Link>
                     <Link to="/home">Gerar Relatório</Link>                    
                     <Link to="/home">Sobre</Link>
