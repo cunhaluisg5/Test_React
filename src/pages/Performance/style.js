@@ -53,12 +53,18 @@ export const Table = styled.table`
     };
 
     .modal{
+        display: flex;
+        aligin-items: center;
+        justify-content: space-around;
+    };
+
+    .graphic{
         &:hover {
             color: #d3302f;
             font-weight: bold;
             cursor: pointer;
         }
-    };
+    }
 
     th{
         &:hover {

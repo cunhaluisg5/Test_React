@@ -1,16 +1,28 @@
 import React from "react";
 import Modal from 'react-modal';
 
-const ModalScreen = ({modalIsOpen, closeModal, title}) => {
+import { Container } from "../Modal/style";
+
+const ModalScreen = ({ modalIsOpen, closeModal, title, contents }) => {
+    const customStyles = {
+        content: {
+            textAlign: "center"
+        },
+    };
+
     return (
-        <Modal
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            ariaHideApp={false}
-        >
-            <h2>{title}</h2>
-            <button onClick={closeModal}>Fechar</button>
-        </Modal>
+        <Container>
+            <Modal
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+                ariaHideApp={false}
+                style={customStyles}
+            >
+                <h2>{title}</h2>
+                {contents}
+                <button onClick={closeModal}>Fechar</button>
+            </Modal>
+        </Container>
     );
 };
 
