@@ -33,7 +33,7 @@ const Disciplines = () => {
         <Container>
             <Header />
             <Body>
-                <h1>Disciplinas</h1>
+                <h1>Consultar Disciplinas</h1>
                 {loading === true && <Load />}
                 {classes.length > 0
                     ?

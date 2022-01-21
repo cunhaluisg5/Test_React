@@ -1,21 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { BsGraphUp, BsFillBarChartFill } from "react-icons/bs";
+import { BsChatSquareText } from "react-icons/bs";
 
 import Header from "../../components/Header";
 import Load from "../../components/Load/load";
 import Modal from "../../components/Modal";
-import BarGraphic from "../../components/BarGraphic";
-import LineGraphic from "../../components/LineGraphic";
+import Reports from "../../components/Reports";
 import api from "../../services/api";
 import { Container, Body, Table } from "./style";
 
-const Performence = () => {
+const Report = () => {
     const [questionnaires, setQuestionnaires] = useState([]);
     const [loading, setLoading] = useState(true);
     const [modalIsOpen, setIsOpen] = useState(false);
     const [dataChart, setDataChart] = useState([]);
     const [objectData, setObjectData] = useState([]);
-    const [option, setOption] = useState(1);
 
     useEffect(() => {
         getQuestionnaires();
@@ -37,47 +35,38 @@ const Performence = () => {
         }
     }
 
-    const closeModal = () => {
-        setIsOpen(false);
-    }
-
-    const openModal = (object, option) => {
-        setOption(option);
-        setObjectData(object);
-        getChart();
-    }
-
     const getChart = async () => {
         setLoading(true);
         try {
             if (questionnaires != null) {
-                const object = (await api.post('chartController/chart', questionnaires[0])).data.dataChart;
-                if (object != null) {
-                    const chart = object.map((data) => {
-                        const title = data.title;
-                        const value = parseFloat(data.weightedAverage);
-                        return (
-                            {
-                                name: title,
-                                Media: value
-                            }
-                        );
-                    });
-                    setDataChart(chart);
+                const { dataChart } = (await api.post('chartController/chart', questionnaires[0])).data
+    
+                if (dataChart != null) {
+                    setDataChart(dataChart);
                     setIsOpen(true);
                 }
             }
         } catch (error) {
             console.log("Erro ", error);
+            setLoading(false);
         }
         setLoading(false);
+    }
+
+    const closeModal = () => {
+        setIsOpen(false);
+    }
+
+    const openModal = (object) => {
+        setObjectData(object);
+        getChart();
     }
 
     return (
         <Container>
             <Header />
             <Body>
-                <h1>Consultar Desempenho</h1>
+                <h1>Gerar Relatório</h1>
                 {loading === true && <Load />}
                 {questionnaires.length > 0
                     ?
@@ -88,7 +77,7 @@ const Performence = () => {
                                 <th>CÓDIGO</th>
                                 <th>TURMA</th>
                                 <th>DOCENTE</th>
-                                <th>GRÁFICO</th>
+                                <th>RELATÓRIO</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -104,8 +93,7 @@ const Performence = () => {
                                         <td>Turma: {objectClass.code}</td>
                                         <td>Docente: {professor.name}</td>
                                         <td className="modal">
-                                            <BsFillBarChartFill className="graphic" onClick={() => openModal(object, 1)}/> 
-                                            <BsGraphUp className="graphic" onClick={() => openModal(object, 2)}/>
+                                            <BsChatSquareText className="graphic" onClick={() => openModal(object)} />
                                         </td>
                                     </tr>
                                 );
@@ -117,11 +105,11 @@ const Performence = () => {
                         <span>Não há disciplinas encontradas!</span>
                     </div>
                 }
-                <Modal modalIsOpen={modalIsOpen} closeModal={closeModal} title="Performance"
-                    contents={option === 1 ? <BarGraphic data={dataChart} /> : <LineGraphic data={dataChart} />} />
+                <Modal modalIsOpen={modalIsOpen} closeModal={closeModal} title="Relatório de Desempenho"
+                    contents={<Reports objectData={objectData} dataChart={dataChart}/>} />
             </Body>
         </Container>
     );
 };
 
-export default Performence;
+export default Report;

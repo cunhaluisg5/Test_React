@@ -32,7 +32,7 @@ const Header = () => {
                     <Link to="/profile">Perfil</Link>
                     <Link to="/disciplines">Consultar Disciplinas</Link>
                     <Link to="/performance">Consultar Desempenho</Link>
-                    <Link to="/home">Gerar Relatório</Link>                    
+                    <Link to="/report">Gerar Relatório</Link>                    
                     <Link to="/home">Sobre</Link>
                     <button onClick={logout}>Sair</button>
                 </Items>
