@@ -1,14 +1,18 @@
 import React from "react";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 
-import { Container } from "../Modal/style";
+import { Container, Buttons, Area, Salvar, Enviar, Fechar } from "../Modal/style";
 
-const ModalScreen = ({ modalIsOpen, closeModal, title, contents }) => {
+const ModalScreen = ({ modalIsOpen, closeModal, title, contents, saveState, save, commentary, setCommentary }) => {
     const customStyles = {
         content: {
             textAlign: "center"
         },
     };
+
+    const handleChange = (event) => {
+        setCommentary(event.target.value);
+    }
 
     return (
         <Container>
@@ -20,7 +24,16 @@ const ModalScreen = ({ modalIsOpen, closeModal, title, contents }) => {
             >
                 <h2>{title}</h2>
                 {contents}
-                <button onClick={closeModal}>Fechar</button>
+                <Area
+                    value={commentary}
+                    onChange={handleChange}
+                    placeholder="Deixe um comentário..."
+                />
+                <Buttons>
+                    {saveState && <Salvar onClick={saveState}>Salvar</Salvar>}
+                    {save && <Enviar onClick={save}>Enviar</Enviar>}
+                    <Fechar onClick={closeModal}>Fechar</Fechar>
+                </Buttons>
             </Modal>
         </Container>
     );
