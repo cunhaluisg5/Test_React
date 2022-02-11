@@ -224,8 +224,9 @@ const Questionnaire = () => {
                         </tbody>
                     </Table>
                 }
-                <Modal modalIsOpen={modalIsOpen} closeModal={closeModal} saveState={saveState} save={save} commentary={commentary}
-                    setCommentary={setCommentary} title="Questionário" contents={<Questionnaires questionnaires={questionnaires} />} />
+                <Modal modalIsOpen={modalIsOpen} closeModal={closeModal} saveState={saveState} save={save} lodCommentary={true} 
+                    commentary={commentary} setCommentary={setCommentary} title="Questionário" 
+                    contents={<Questionnaires questionnaires={questionnaires} />} />
             </Body>
         </Container>
     );

@@ -50,6 +50,8 @@ export const Table = styled.table`
         justify-content: center;
         width: 25%;
         border: 1px solid #000000;
+        align-self: stretch;
+        text-align: center;
     };
 
     th{
