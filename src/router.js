@@ -8,6 +8,7 @@ import Disciplines from "./pages/Search";
 import Performence from "./pages/Performance";
 import Report from "./pages/Report";
 import Questionnaire from "./pages/Questionnaire";
+import Answered from "./pages/Answered";
 
 function Router(){
     return(
@@ -20,6 +21,7 @@ function Router(){
                 <Route exact path="/performance" element={<Performence/>}/>
                 <Route exact path="/report" element={<Report/>}/>
                 <Route exact path="/questionnaire" element={<Questionnaire/>}/>
+                <Route exact path="/answered" element={<Answered/>}/>
             </Routes>
         </BrowserRouter>
     );

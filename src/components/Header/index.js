@@ -21,7 +21,7 @@ const Header = () => {
                     <Link to="/profile">Perfil</Link>
                     <Link to="/disciplines">Consultar Disciplinas</Link>
                     <Link to="/questionnaire">Responder Questionário</Link>
-                    <Link to="/home">Questionários Respondidos</Link>
+                    <Link to="/answered">Questionários Respondidos</Link>
                     <Link to="/home">Sobre</Link>
                     <button onClick={logout}>Sair</button>
                 </Items>
