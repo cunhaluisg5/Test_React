@@ -37,8 +37,7 @@ export const Title = styled.span`
     color: #ffffff;
     margin-bottom: 20px;
     padding: 5px;
-    border-top: 2px solid palevioletred;
-    box-shadow: 0px 0px 10px 0px #000000;
+    text-shadow: 2px 2px #000000;
 `;
 
 export const Text = styled.span`
