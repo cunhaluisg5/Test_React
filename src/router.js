@@ -9,6 +9,7 @@ import Performence from "./pages/Performance";
 import Report from "./pages/Report";
 import Questionnaire from "./pages/Questionnaire";
 import Answered from "./pages/Answered";
+import About from "./pages/About";
 
 function Router(){
     return(
@@ -22,6 +23,7 @@ function Router(){
                 <Route exact path="/report" element={<Report/>}/>
                 <Route exact path="/questionnaire" element={<Questionnaire/>}/>
                 <Route exact path="/answered" element={<Answered/>}/>
+                <Route exact path="/about" element={<About/>}/>
             </Routes>
         </BrowserRouter>
     );

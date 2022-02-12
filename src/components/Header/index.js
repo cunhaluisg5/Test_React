@@ -22,7 +22,7 @@ const Header = () => {
                     <Link to="/disciplines">Consultar Disciplinas</Link>
                     <Link to="/questionnaire">Responder Questionário</Link>
                     <Link to="/answered">Questionários Respondidos</Link>
-                    <Link to="/home">Sobre</Link>
+                    <Link to="/about">Sobre</Link>
                     <button onClick={logout}>Sair</button>
                 </Items>
             }
@@ -33,7 +33,7 @@ const Header = () => {
                     <Link to="/disciplines">Consultar Disciplinas</Link>
                     <Link to="/performance">Consultar Desempenho</Link>
                     <Link to="/report">Gerar Relatório</Link>                    
-                    <Link to="/home">Sobre</Link>
+                    <Link to="/about">Sobre</Link>
                     <button onClick={logout}>Sair</button>
                 </Items>
             }
