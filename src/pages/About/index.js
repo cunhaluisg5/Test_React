@@ -1,6 +1,5 @@
 import React from "react";
 
-
 import { Container, Body, Card, Title, Text } from "./style";
 import Header from "../../components/Header";
 

@@ -26,8 +26,10 @@ const Home = () => {
                 navigate("/report");
                 break;
             case 6:
-            navigate("/performance");
-            break;
+                navigate("/performance");
+                break;
+            default:
+                navigate("/");
         }
     }
 

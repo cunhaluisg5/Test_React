@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import Router from "./router";
 
-function App() {
+const App = () =>{
   return (
     <div>
       <Router/>

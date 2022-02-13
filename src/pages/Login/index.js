@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import {useNavigate} from "react-router-dom";
-import { toast }from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-import {Container, Header, Form, FormCPF, FormPassword, LoginButton} from "./style";
+import { Container, Card, Form, FormCPF, FormPassword, LoginButton, Title, FormContainer } from "./style";
 import api from "../../services/api";
 
 function Login() {
@@ -10,12 +10,12 @@ function Login() {
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const login = async () =>{
+    const login = async () => {
         await api.post("/user/authenticate", {
             cpf,
             password
         }).then((object) => {
-            const {user} = object.data;
+            const { user } = object.data;
             localStorage.setItem("user", JSON.stringify(user));
             navigate("/home");
         }).catch((error) => {
@@ -25,22 +25,24 @@ function Login() {
 
     return (
         <Container>
-            <Header>
-                <h1>Login do Sistema</h1>
-            </Header>
             <Form>
-                <FormCPF>
-                    <label>CPF:</label>
-                    <input type="text" value={cpf} onChange={(e) => { setCpf(e.target.value) }} />
-                </FormCPF>
-                <FormPassword>
-                    <label>Senha:</label>
-                    <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
-                </FormPassword>
+                <Card>
+                    <Title><span className="first">SISTEMA</span> <span className="second">AVALIATIVO</span></Title>
+                    <FormContainer>
+                        <FormCPF>
+                            <label>CPF:</label>
+                            <input type="text" value={cpf} onChange={(e) => { setCpf(e.target.value) }} />
+                        </FormCPF>
+                        <FormPassword>
+                            <label>SENHA:</label>
+                            <input type="password" value={password} onChange={(e) => { setPassword(e.target.value) }} />
+                        </FormPassword>
+                        <LoginButton>
+                            <button onClick={login}>Entrar</button>
+                        </LoginButton>
+                    </FormContainer>
+                </Card>
             </Form>
-            <LoginButton>
-                <button onClick={login}>Entrar</button>
-            </LoginButton>
         </Container>
     );
 };
